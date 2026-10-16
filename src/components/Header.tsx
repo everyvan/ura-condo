@@ -6,6 +6,7 @@ interface HeaderProps {
   onOpenNotifications: () => void;
   onOpenProfile: () => void;
   onToggleSaved: () => void;
+  onOpenLiveRegistry?: () => void;
   isFilterSaved: boolean;
   savedCount: number;
 }
@@ -16,6 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenNotifications,
   onOpenProfile,
   onToggleSaved,
+  onOpenLiveRegistry,
   isFilterSaved,
   savedCount,
 }) => {
@@ -41,10 +43,15 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="font-['Manrope'] text-[17px] sm:text-[18px] text-[#0b1c30] tracking-tight font-extrabold flex items-center gap-1.5">
               PropLaunch SG
             </span>
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#006c49]/10 text-[#006c49] font-['JetBrains_Mono'] text-[10.5px] sm:text-[11px] font-semibold border border-[#006c49]/15">
+            <button
+              type="button"
+              onClick={onOpenLiveRegistry}
+              title="Click to browse live URA Government data feed (778 records)"
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#006c49]/10 hover:bg-[#006c49]/20 text-[#006c49] font-['JetBrains_Mono'] text-[10.5px] sm:text-[11px] font-semibold border border-[#006c49]/15 cursor-pointer transition"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-[#006c49] animate-pulse"></span>
               URA &amp; GLS Live Data
-            </span>
+            </button>
           </div>
           <span className="font-['Hanken_Grotesk'] text-[11px] uppercase tracking-wider text-[#45464d] font-bold">
             {getTabLabel()}

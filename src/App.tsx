@@ -14,6 +14,7 @@ import { PitchModal } from './components/PitchModal';
 import { SiteDetailModal } from './components/SiteDetailModal';
 import { NotificationDrawer } from './components/NotificationDrawer';
 import { ProfileModal } from './components/ProfileModal';
+import { LiveUraRegistryModal } from './components/LiveUraRegistryModal';
 
 import { INITIAL_GLS_SITES } from './data/glsSites';
 import { INITIAL_NOTIFICATIONS } from './data/notifications';
@@ -76,6 +77,7 @@ export default function App() {
   const [detailSite, setDetailSite] = useState<GLSSite | null>(null);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isLiveRegistryOpen, setIsLiveRegistryOpen] = useState(false);
 
   // Toggle bookmark for a site
   const handleToggleBookmark = (siteId: string) => {
@@ -163,6 +165,7 @@ export default function App() {
         onOpenNotifications={() => setIsNotificationOpen(true)}
         onOpenProfile={() => setIsProfileOpen(true)}
         onToggleSaved={() => setIsFilterSaved((prev) => !prev)}
+        onOpenLiveRegistry={() => setIsLiveRegistryOpen(true)}
         isFilterSaved={isFilterSaved}
         savedCount={bookmarkedIds.size}
       />
@@ -257,6 +260,20 @@ export default function App() {
           setAgentName(name);
           setAgencyName(agency);
           setAgentCea(cea);
+        }}
+      />
+
+      {/* Official URA Isomer Live Registry Modal */}
+      <LiveUraRegistryModal
+        isOpen={isLiveRegistryOpen}
+        onClose={() => setIsLiveRegistryOpen(false)}
+        onSimulatePsf={(psf, siteName) => {
+          setLandCost(psf);
+          setActivePitchSiteName(siteName);
+          const el = document.getElementById('forecaster-card');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }}
       />
     </div>
