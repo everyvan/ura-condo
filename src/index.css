@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline-xl: "Manrope", sans-serif;
+  --font-headline-lg: "Manrope", sans-serif;
+  --font-headline-md: "Manrope", sans-serif;
+  --font-headline-sm: "Manrope", sans-serif;
+  --font-body-lg: "Hanken Grotesk", sans-serif;
+  --font-body-md: "Hanken Grotesk", sans-serif;
+  --font-body-sm: "Hanken Grotesk", sans-serif;
+  --font-label-ui: "Hanken Grotesk", sans-serif;
+  --font-label-data-lg: "JetBrains Mono", monospace;
+  --font-label-data-md: "JetBrains Mono", monospace;
+  --font-label-data-sm: "JetBrains Mono", monospace;
+
+  --color-surface: #f8f9ff;
+  --color-surface-dim: #cbdbf5;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d3e4fe;
+  
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #45464d;
+  --color-outline: #76777d;
+  --color-outline-variant: #c6c6cd;
+  
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #131b2e;
+  --color-on-primary-container: #7c839b;
+  
+  --color-secondary: #006c49;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #6cf8bb;
+  --color-on-secondary-container: #00714d;
+  --color-secondary-fixed: #6ffbbe;
+  --color-secondary-fixed-dim: #4edea3;
+  --color-on-secondary-fixed: #002113;
+  
+  --color-tertiary: #000000;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+}
+
+@layer base {
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Hanken Grotesk", sans-serif;
+    color: #0b1c30;
+    background-color: #f8f9ff;
+  }
+  
+  .font-headline-xl {
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+  .font-headline-lg {
+    font-family: "Manrope", sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+  .font-headline-md {
+    font-family: "Manrope", sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  .font-headline-sm {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  .font-body-lg {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  .font-body-md {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  .font-body-sm {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+  .font-label-ui {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+  .font-label-data-lg {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  .font-label-data-md {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+  .font-label-data-sm {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+}
+
+/* Custom scrollbar hiding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Material symbol helper */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Safe area support */
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Range input tactile styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #000000;
+  cursor: pointer;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #000000;
+  cursor: pointer;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}

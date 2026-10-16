@@ -1,0 +1,6 @@
+{
+  "name": "PropLaunch SG - URA & GLS Indicative Forecaster",
+  "description": "Singapore Government Land Sales (GLS) pipeline analysis, land-to-launch breakeven forecaster, and URA Realis caveat intelligence for property advisors and investors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
